@@ -1,0 +1,66 @@
+#!/bin/bash
+
+BASE_DIR=$(cd `dirname $0`;pwd)
+# X
+# install xmonad
+#sudo apt-get install xmonad
+#mkdir -p ~/.xmonad/
+#ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
+ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
+#ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
+ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
+
+# git, install the latest version
+#GIT_VERION=`git --version`
+sudo apt-get -y remove git
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt-get -y update
+sudo apt-get -y install git
+git config --global user.name "Yemin Zhang"
+git config --global user.email "yemin.zhang@ericsson.com"
+
+# emacs
+which emacs-24.4
+if [ $? -ne 0 ]; then
+   cd ~
+   mkdir emacs-src && cd emacs-src
+   wget http://mirror.team-cymru.org/gnu/emacs/emacs-24.4.tar.gz
+   tar xvf emacs-24.4.tar.gz
+
+   sudo apt-get -y install build-essential
+   sudo apt-get -y build-dep emacs24
+   cd emacs-24.4
+   ./configure
+   make
+   sudo make install
+
+   cd ~
+   rm -rf emacs-src
+fi
+
+if [ ! -d ~/.emacs.d ]; then
+	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
+	cd ~/.emacs.d/
+	git submodule update --init
+fi
+
+# global
+# install exuberant-ctags
+sudo apt-get -y install exuberant-ctags
+
+# install global with exuberant-ctags support
+cd ~
+wget http://tamacom.com/global/global-6.5.tar.gz
+gunzip global-6.5.tar.gz
+tar xf global-6.5.tar
+cd global-6.5
+./configure --with-exuberant-ctags=/usr/bin/ctags
+make
+sudo make install
+
+# clear left over
+cd ..
+rm global-6.5.tar
+rm -rf global-6.5
+
+ln -sf $BASE_DIR/global/.globalrc ~/.globalrc

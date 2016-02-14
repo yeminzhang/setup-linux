@@ -1,0 +1,4 @@
+#setxkbmap se
+#xmodmap ~/.xmodmaprc
+#xset r rate 250 35
+#xmonad
