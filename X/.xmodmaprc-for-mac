@@ -1,0 +1,20 @@
+!
+! Personal keyboard layout based on American keyboard 
+!
+remove Lock = Caps_Lock
+remove Control = Control_L
+remove Mod4 = Super_L
+remove Mod4 = Super_R
+remove Mod1 = Alt_L
+remove Mod1 = Alt_R
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L apostrophe
+keysym Alt_L = Super_L
+keysym Super_L = Alt_L
+keysym Super_R = Alt_R
+keysym apostrophe = Control_R quotedbl
+add Control = Control_L
+add Control = Control_R
+add Mod4 = Super_L
+add Mod1 = Alt_L
+add Mod1 = Alt_R
