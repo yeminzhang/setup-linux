@@ -58,6 +58,10 @@ cd global-6.5
 make
 sudo make install
 
+# clang-format-3.5
+sudo apt-get -y install clang-format-3.5
+sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
+
 # clear left over
 cd ..
 rm global-6.5.tar
