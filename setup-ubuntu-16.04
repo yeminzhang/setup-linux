@@ -1,0 +1,62 @@
+#!/bin/bash
+
+BASE_DIR=$(cd `dirname $0`;pwd)
+# X
+# install xmonad
+#sudo apt-get install xmonad
+#mkdir -p ~/.xmonad/
+#ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
+ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
+#ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
+echo "Is it Macbook keyboard layout?(y or n):"
+read mac_keyboard_layout
+if [ $mac_keyboard_layout -eq "y" ]; then
+    ln -sf $BASE_DIR/X/.xmodmaprc-for-mac ~/.xmodmaprc
+else
+    ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
+fi
+
+# git, install the latest version
+sudo apt-get -y install git
+echo "Enter git user name:"
+read git_name
+git config --global user.name $git_name
+echo "Enter git email address:"
+read git_email
+git config --global user.email $git_email
+
+# emacs
+which emacs
+sudo apt-get -y install emacs
+
+if [ ! -d ~/.emacs.d ]; then
+	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
+	cd ~/.emacs.d/
+	git submodule update --init
+fi
+
+# global
+# install exuberant-ctags
+sudo apt-get -y install exuberant-ctags
+
+# install global with exuberant-ctags support
+cd ~
+wget http://tamacom.com/global/global-6.5.tar.gz
+gunzip global-6.5.tar.gz
+tar xf global-6.5.tar
+cd global-6.5
+./configure --with-exuberant-ctags=/usr/bin/ctags
+make
+sudo make install
+
+ln -sf $BASE_DIR/global/.globalrc ~/.globalrc
+
+# clang-format-3.5
+sudo apt-get -y install clang-format-3.5
+sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
+
+# clear left over
+cd ..
+rm global-6.5.tar
+rm -rf global-6.5
+
