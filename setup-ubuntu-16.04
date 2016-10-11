@@ -8,9 +8,9 @@ BASE_DIR=$(cd `dirname $0`;pwd)
 #ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
 ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
 #ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
-echo "Is it Macbook keyboard layout?(y or n):"
+echo -n "Is it Macbook keyboard layout?(y or n):"
 read mac_keyboard_layout
-if [ $mac_keyboard_layout -eq "y" ]; then
+if [ "$mac_keyboard_layout" == "y" ]; then
     ln -sf $BASE_DIR/X/.xmodmaprc-for-mac ~/.xmodmaprc
 else
     ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
@@ -18,10 +18,10 @@ fi
 
 # git, install the latest version
 sudo apt-get -y install git
-echo "Enter git user name:"
+echo -n "Enter git user name: "
 read git_name
 git config --global user.name $git_name
-echo "Enter git email address:"
+echo -n "Enter git email address: "
 read git_email
 git config --global user.email $git_email
 
