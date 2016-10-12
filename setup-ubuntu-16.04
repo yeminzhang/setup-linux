@@ -18,14 +18,12 @@ else
     ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
 fi
 
-# git, install the latest version
-sudo apt-get -y install git
 echo -n "Enter git user name: "
 read git_name
-git config --global user.name $git_name
+git config --global user.name "$git_name"
 echo -n "Enter git email address: "
 read git_email
-git config --global user.email $git_email
+git config --global user.email "$git_email"
 
 # emacs
 which emacs
