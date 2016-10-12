@@ -3,7 +3,7 @@
 BASE_DIR=$(cd `dirname $0`;pwd)
 # X
 # install xmonad
-#sudo apt-get install xmonad
+#sudo apt install xmonad
 #mkdir -p ~/.xmonad/
 #ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
 ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
@@ -27,7 +27,7 @@ git config --global user.email "$git_email"
 
 # emacs
 which emacs
-sudo apt-get -y install emacs
+sudo apt -y install emacs
 
 if [ ! -d ~/.emacs.d ]; then
 	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
@@ -37,7 +37,7 @@ fi
 
 # global
 # install exuberant-ctags
-sudo apt-get -y install exuberant-ctags
+sudo apt -y install exuberant-ctags
 
 # install global with exuberant-ctags support
 cd ~
@@ -51,12 +51,15 @@ sudo make install
 
 ln -sf $BASE_DIR/global/.globalrc ~/.globalrc
 
-# clang-format-3.5
-sudo apt-get -y install clang-format-3.5
-sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
-
 # clear left over
 cd ..
 rm global-6.5.tar
 rm -rf global-6.5
 
+# clang-format-3.5
+sudo apt -y install clang-format-3.5
+sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
+
+# other usefull tools
+sudo apt -y install sshpass
+sudo apt -y install zsh
