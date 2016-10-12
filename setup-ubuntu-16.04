@@ -9,7 +9,9 @@ BASE_DIR=$(cd `dirname $0`;pwd)
 ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
 #ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
 echo -n "Is it Macbook keyboard layout?(y or n):"
-read mac_keyboard_layout
+read -n 1 mac_keyboard_layout
+echo ""
+
 if [ "$mac_keyboard_layout" == "y" ]; then
     ln -sf $BASE_DIR/X/.xmodmaprc-for-mac ~/.xmodmaprc
 else
