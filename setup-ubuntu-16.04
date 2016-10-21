@@ -63,3 +63,6 @@ sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
 # other usefull tools
 sudo apt -y install sshpass
 sudo apt -y install zsh
+
+# ssh key
+ssh-keygen -t rsa -C $git_email
