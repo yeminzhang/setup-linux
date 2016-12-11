@@ -3,10 +3,12 @@
 BASE_DIR=$(cd `dirname $0`;pwd)
 # X
 # install xmonad
-#sudo apt install xmonad
-#mkdir -p ~/.xmonad/
-#ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
-ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
+sudo apt -y install xmonad
+mkdir -p ~/.xmonad/
+ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
+sudo update-alternatives --install /usr/bin/x-session-manager x-session-manager /home/yemin/setup-linux/X/xmonad-session 80
+
+#ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
 #ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
 echo -n "Is it Macbook keyboard layout?(y or n):"
 read -n 1 mac_keyboard_layout
@@ -65,4 +67,6 @@ sudo apt -y install sshpass
 sudo apt -y install zsh
 
 # ssh key
-ssh-keygen -t rsa -C $git_email
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
+    ssh-keygen -t rsa -C $git_email
+fi
