@@ -32,7 +32,7 @@ myLayoutHook = avoidStruts $ onWorkspace "7:Pidgin" pidginLayout $ tiled1 ||| Mi
 
 main = do
 --       xmproc <- spawnPipe "xmobar"
-       xmonad $ defaultConfig { terminal = "gnome-terminal"  
+       xmonad $ defaultConfig { terminal = "rxvt"
                               , modMask = mod4Mask
                               , workspaces = myWorkspaces  
                               , layoutHook = myLayoutHook 
