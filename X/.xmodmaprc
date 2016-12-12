@@ -4,9 +4,13 @@
 remove Lock = Caps_Lock
 remove Control = Control_L
 remove Control = Control_R
+remove Mod1 = Alt_R
 keysym Control_L = Caps_Lock
 keysym Caps_Lock = Control_L apostrophe
 keysym Control_R = apostrophe
 keysym apostrophe = Control_R quotedbl
+keysym semicolon  = odiaeresis colon
+keysym Alt_R = Alt_R semicolon
 add Control = Control_L
 add Control = Control_R
+add Mod1 = Alt_R
