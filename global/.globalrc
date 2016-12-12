@@ -1,7 +1,10 @@
 default:\
-	:tc=schnouki:
+	:tc=mds:
 schnouki:\
-        :tc=gtags:tc=exuberant-ctags:tc=htags:
+    :tc=gtags:tc=exuberant-ctags:tc=htags:
+mds:\
+    :skip=/bin/,/G*,/hooks/,/last/,/list/,/ops/,/python/,/remote/,/training/,/users/,/bizdev/,/build/,/conf/,/data/,/linux/,/mac/,/ptpd/,/QTCreator/,/systems/,/web/,/linux.debug/:\
+    :tc=builtin-parser:
 
 common:\
 	:skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,.git/,_build/:
@@ -11,7 +14,7 @@ gtags:\
 	:tc=builtin-parser:
 
 builtin-parser:\
-	:langmap=c\:.c.h,yacc\:.y,asm\:.s.S,java\:.java,cpp\:.c++.cc.hh.cpp.cxx.hxx.hpp.C.H,php\:.php.php3.phtml:
+	:langmap=c\:.c.h,yacc\:.y,asm\:.s.S,java\:.java,cpp\:.c++.cc.hh.cpp.cxx.hxx.hpp.C.H.c.h,php\:.php.php3.phtml:
 
 exuberant-ctags|plugin-example|setting to use Exuberant Ctags plug-in parser:\
 	:tc=common:\
