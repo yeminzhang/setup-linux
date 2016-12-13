@@ -1,45 +1,21 @@
 #!/bin/bash
 
 BASE_DIR=$(cd `dirname $0`;pwd)
+
+install () {
+    sudo apt -y install $1
+}
 # X
 # install xmonad
-sudo apt -y install xmonad
-sudo apt -y install dmenu
-mkdir -p ~/.xmonad/
-ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
-ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
-#ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
-
-echo -n "Is it Macbook keyboard layout?(y or n):"
-read -n 1 mac_keyboard_layout
-echo ""
-
-if [ "$mac_keyboard_layout" == "y" ]; then
-    ln -sf $BASE_DIR/X/.xmodmaprc-for-mac ~/.xmodmaprc
-else
-    ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
-fi
-
-echo -n "Enter git user name: "
-read git_name
-git config --global user.name "$git_name"
-echo -n "Enter git email address: "
-read git_email
-git config --global user.email "$git_email"
+install xmonad
+install dmenu
 
 # emacs
-which emacs
-sudo apt -y install emacs
-
-if [ ! -d ~/.emacs.d ]; then
-	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
-	cd ~/.emacs.d/
-	git submodule update --init
-fi
+install emacs
 
 # global
 # install exuberant-ctags
-sudo apt -y install exuberant-ctags
+install exuberant-ctags
 
 # install global with exuberant-ctags support
 cd ~
@@ -51,22 +27,16 @@ cd global-6.5
 make
 sudo make install
 
-ln -sf $BASE_DIR/global/.globalrc ~/.globalrc
-
 # clear left over
 cd ..
 rm global-6.5.tar
 rm -rf global-6.5
 
 # clang-format-3.5
-sudo apt -y install clang-format-3.5
-sudo ln -sf /usr/bin/clang-format-3.5 /usr/bin/clang-format
+install clang-format-3.5
 
 # other usefull tools
-sudo apt -y install sshpass
-sudo apt -y install zsh
+install sshpass
+install zsh
 
-# ssh key
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
-    ssh-keygen -t rsa -C $git_email
-fi
+$BASE_DIR/configure-linux
