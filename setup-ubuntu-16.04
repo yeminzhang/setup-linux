@@ -6,8 +6,8 @@ install () {
     sudo apt -y install $1
 }
 # X
-# install xmonad
-install xmonad
+# install dwm
+install dwm
 install dmenu
 
 # emacs

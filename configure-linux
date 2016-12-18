@@ -3,10 +3,22 @@
 # run after packages have been installed
 
 BASE_DIR=$(cd `dirname $0`;pwd)
-
-# xmonad
-ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
+# X general
 ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
+# install my own dwm
+cd ~
+if [ ! -d ~/dwm ]; then
+    git clone git://git.suckless.org/dwm
+fi
+cd dwm
+make
+cp -f $BASE_DIR/X/config.h ./
+make clean
+make
+sudo make install
+sudo update-alternatives --install /usr/bin/dwm dwm /usr/local/bin/dwm 1000
+
+#ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
 #ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
 
 # xmodmap
@@ -21,12 +33,18 @@ else
 fi
 
 # git
-echo -n "Enter git user name: "
-read git_name
-git config --global user.name "$git_name"
-echo -n "Enter git email address: "
-read git_email
-git config --global user.email "$git_email"
+git config --global user.name
+if [ $? -ne 0 ]; then
+    echo -n "Enter git user name: "
+    read git_name
+    git config --global user.name "$git_name"
+fi
+git config --global user.email
+if [ $? -ne 0 ]; then
+    echo -n "Enter git email address: "
+    read git_email
+    git config --global user.email "$git_email"
+fi
 
 # emacs
 if [ ! -d ~/.emacs.d ]; then
