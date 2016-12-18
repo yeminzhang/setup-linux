@@ -19,18 +19,18 @@ install exuberant-ctags
 
 # install global with exuberant-ctags support
 cd ~
-wget http://tamacom.com/global/global-6.5.tar.gz
-gunzip global-6.5.tar.gz
-tar xf global-6.5.tar
-cd global-6.5
+wget ftp://ftp.gnu.org/pub/gnu/global/global-6.5.5.tar.gz
+gunzip global-6.5.5.tar.gz
+tar xf global-6.5.5.tar
+cd global-6.5.5
 ./configure --with-exuberant-ctags=/usr/bin/ctags
 make
 sudo make install
 
 # clear left over
 cd ..
-rm global-6.5.tar
-rm -rf global-6.5
+rm global-6.5.5.tar
+rm -rf global-6.5.5
 
 # clang-format-3.5
 install clang-format-3.5
