@@ -1,0 +1,22 @@
+!
+! Personal keyboard layout based on HHKB Pro 2
+! with switch 3 and 5 on
+!
+remove Control = Control_L
+remove Mod1 = Alt_R
+remove Mod1 = Alt_L
+keysym Control_L = Control_L apostrophe
+keysym apostrophe = Control_R quotedbl
+keysym semicolon  = odiaeresis colon
+keysym comma = comma semicolon
+keysym period = period colon
+keysym Alt_L = Alt_L less
+keysym Alt_R = Alt_R greater
+keysym Muhenkan = Super_L
+keysym Henkan_Mode = Super_R
+add Control = Control_L
+add Control = Control_R
+add Mod1 = Alt_L
+add Mod1 = Alt_R
+add Mod4 = Super_L
+add Mod4 = Super_R
