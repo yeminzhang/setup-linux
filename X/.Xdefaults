@@ -1,21 +1,19 @@
-
 !-------------------------------------------------------------------------------
- 
+
 URxvt.depth: 32
 URxvt.geometry: 90x30
 URxvt.transparent: false
 URxvt.fading: 0
-! URxvt.urgentOnBell: true
-! URxvt.visualBell: true
-URxvt.loginShell: true
-URxvt.saveLines: 50
+URxvt.loginShell: false
 URxvt.internalBorder: 3
 URxvt.lineSpace: 0
- 
+URxvt.saveLines:32767
+
 ! Fonts
 URxvt.allow_bold: false
 !URxvt.font:xft:Monospace:size=11:style=regular:antialias=true, xft:WenQuanYi Micro Hei Mono:size=12:style=regular:antialias=true
-URxvt.font:xft:Monospace:size=10.5:style=regular:antialias=true
+URxvt.font:xft:Monospace:pixelsize=14:style=regular:antialias=true
+URxvt.boldFont:
 URxvt.multichar_encoding: utf-8
 URxvt.imLocale: zh_CN.UTF-8
 
@@ -27,18 +25,17 @@ URxvt.scrollStyle: plain
 URxvt.scrollBar: false
 URxvt.scrollBar_right: true
 URxvt.scrollBar_floating: true
-URxvt.saveLines: 1000
- 
+
 ! Perl extensions
 !URxvt.perl-ext-common: default,matcher
 !URxvt.matcher.button: 1
 !URxvt.urlLauncher: /usr/bin/google-chrome-stable
- 
+
 ! Cursor
 URxvt.cursorBlink: false
-URxvt.cursorColor: #657b83
+!URxvt.cursorColor: #657b83
 URxvt.cursorUnderline: false
- 
+
 ! Pointer
 URxvt.pointerBlank: true
 
@@ -56,45 +53,29 @@ URxvt*keysym.C-s: perl:keyboard-select:search
 URxvt.keysym.M-u: perl:url-select:select_next
 ! }}}
 
- 
-!!Source http://github.com/altercation/solarized
- 
-*background: #002b36
-*foreground: #657b83
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
- 
-!! black dark/light
-*color0: #073642
-*color8: #002b36
- 
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
- 
-!! green dark/light
-*color2: #859900
-*color10: #586e75
- 
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
- 
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
- 
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
- 
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
- 
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+
+! zenburn theme
+URxvt*termName: rxvt-256color
+URxvt*xftAntialias: true
+URxvt*background: #3f3f3f
+URxvt*foreground: #dcdccc
+URxvt*cursorColor: #aaaaaa
+Urxvt*colorUL: #669090
+!URxvt*colorUL: #366060
+URxvt*underlineColor: #dfaf8f
+URxvt*color0: #3f3f3f
+URxvt*color1: #cc9393
+URxvt*color2: #7f9f7f
+URxvt*color3: #d0bf8f
+URxvt*color4: #6ca0a3
+URxvt*color5: #dc8cc3
+URxvt*color6: #93e0e3
+URxvt*color7: #dcdccc
+URxvt*color8: #000000
+URxvt*color9: #dca3a3
+URxvt*color10: #bfebbf
+URxvt*color11: #f0dfaf
+URxvt*color12: #8cd0d3
+URxvt*color13: #dc8cc3
+URxvt*color14: #93e0e3
+URxvt*color15: #ffffff
