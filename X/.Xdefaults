@@ -26,11 +26,6 @@ URxvt.scrollBar: false
 URxvt.scrollBar_right: true
 URxvt.scrollBar_floating: true
 
-! Perl extensions
-!URxvt.perl-ext-common: default,matcher
-!URxvt.matcher.button: 1
-!URxvt.urlLauncher: /usr/bin/google-chrome-stable
-
 ! Cursor
 URxvt.cursorBlink: false
 !URxvt.cursorColor: #657b83
@@ -41,17 +36,15 @@ URxvt.pointerBlank: true
 
 !URxvt.inheritPixmap: true
 
-! {{{extension
-URxvt*perl-ext-common: default,tabbed,matcher,clipboard,keyboard-select,url-select
-! clipboard/(install xsel)
-URxvt*keysym.M-w: perl:clipboard:copy
-URxvt*keysym.C-y: perl:clipboard:paste
+! Perl extensions
+URxvt*perl-ext-common: default,tabbed,matcher,keyboard-select,url-select,selection-to-clipboard
 ! keyboard-select
 URxvt*keysym.M-Escape: perl:keyboard-select:activate
 URxvt*keysym.C-s: perl:keyboard-select:search
 ! url-select
 URxvt.keysym.M-u: perl:url-select:select_next
-! }}}
+URxvt.matcher.button: 1
+URxvt.urlLauncher: /usr/bin/google-chrome-stable
 
 
 ! zenburn theme
