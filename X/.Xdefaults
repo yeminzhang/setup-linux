@@ -37,7 +37,7 @@ URxvt.pointerBlank: true
 !URxvt.inheritPixmap: true
 
 ! Perl extensions
-URxvt*perl-ext-common: default,tabbed,matcher,keyboard-select,url-select,selection-to-clipboard
+URxvt*perl-ext-common: default,matcher,keyboard-select,url-select,selection-to-clipboard
 ! keyboard-select
 URxvt*keysym.M-Escape: perl:keyboard-select:activate
 URxvt*keysym.C-s: perl:keyboard-select:search
