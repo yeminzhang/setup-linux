@@ -28,7 +28,6 @@ URxvt.scrollBar_floating: true
 
 ! Cursor
 URxvt.cursorBlink: false
-!URxvt.cursorColor: #657b83
 URxvt.cursorUnderline: false
 
 ! Pointer
