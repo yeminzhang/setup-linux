@@ -1,2 +1,4 @@
 xmodmap ~/.xmodmaprc
+xcape -e "Control_L=apostrophe;Control_R=quotedbl;Alt_L=Escape;Alt_R=Escape"
 xset r rate 250 35
+#xrandr --output eDP1 --off
