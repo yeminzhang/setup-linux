@@ -2,11 +2,12 @@
 ! Personal keyboard layout based on HHKB Pro 2
 ! with switch 3 and 5 on
 !
-keysym apostrophe = Control_R
+remove Control = Control_L
+keysym Control_L = Control_L apostrophe
+keysym apostrophe = Control_R quotedbl
 keysym Muhenkan = Super_L
 keysym Henkan_Mode = Super_R
+add Control = Control_L
 add Control = Control_R
-keycode any = apostrophe
-keycode any = quotedbl
 add Mod4 = Super_L
 add Mod4 = Super_R
