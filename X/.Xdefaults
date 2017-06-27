@@ -49,13 +49,13 @@ URxvt.urlLauncher: /usr/bin/google-chrome-stable
 ! zenburn theme
 URxvt*termName: rxvt-256color
 URxvt*xftAntialias: true
-URxvt*background: #3f3f3f
+URxvt*background: #484848
 URxvt*foreground: #dcdccc
 URxvt*cursorColor: #aaaaaa
 Urxvt*colorUL: #669090
 !URxvt*colorUL: #366060
 URxvt*underlineColor: #dfaf8f
-URxvt*color0: #3f3f3f
+URxvt*color0: #484848
 URxvt*color1: #cc9393
 URxvt*color2: #7f9f7f
 URxvt*color3: #d0bf8f
