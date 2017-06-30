@@ -39,7 +39,7 @@ URxvt.pointerBlank: true
 URxvt*perl-ext-common: default,matcher,keyboard-select,url-select,selection-to-clipboard
 ! keyboard-select
 URxvt*keysym.M-Escape: perl:keyboard-select:activate
-URxvt*keysym.C-s: perl:keyboard-select:search
+!URxvt*keysym.C-s: perl:keyboard-select:search
 ! url-select
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.matcher.button: 1
