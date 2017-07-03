@@ -21,16 +21,8 @@ sudo update-alternatives --install /usr/bin/dwm dwm /usr/local/bin/dwm 1000
 #ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
 #ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
 
-# xmodmap
-echo -n "Is it Macbook keyboard layout?(y or n):"
-read -n 1 mac_keyboard_layout
-echo ""
-
-if [ "$mac_keyboard_layout" == "y" ]; then
-    ln -sf $BASE_DIR/X/.xmodmaprc-for-mac ~/.xmodmaprc
-else
-    ln -sf $BASE_DIR/X/.xmodmaprc ~/.xmodmaprc
-fi
+# xmodmap now only uses hhkb config
+ln -sf $BASE_DIR/X/.xmodmaprc-for-hhkb ~/.xmodmaprc
 
 # git
 git config --global user.name
