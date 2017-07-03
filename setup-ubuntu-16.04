@@ -13,6 +13,10 @@ install dmenu
 # emacs
 install emacs
 
+# terminal emulator
+install rxvt-unicode-256color
+install tmux
+
 # global
 # install exuberant-ctags
 install exuberant-ctags

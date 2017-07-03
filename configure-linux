@@ -45,6 +45,10 @@ if [ ! -d ~/.emacs.d ]; then
 	git submodule update --init
 fi
 
+# terminal emulator
+ln -sf $BASE_DIR/X/.Xdefaults ~/.Xdefaults
+ln -sf $BASE_DIR/tmux/.tmux.conf ~/.tmux.conf
+
 # global
 ln -sf $BASE_DIR/global/.globalrc ~/.globalrc
 
