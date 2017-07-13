@@ -93,6 +93,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    /**emacs*/
+	TAGKEYS(                        XK_e,                      0)
+    /**shell terminal emulator*/
+	TAGKEYS(                        XK_s,                      1)
+    /**web browser*/
+	TAGKEYS(                        XK_w,                      8)
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
