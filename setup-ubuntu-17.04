@@ -1,0 +1,69 @@
+#!/bin/bash
+
+BASE_DIR=$(cd `dirname $0`;pwd)
+
+install () {
+    sudo apt -y install $1
+}
+
+# X
+install libx11-dev
+install libxft-dev
+install libxinerama-dev
+# install dwm
+install dwm
+install dmenu
+
+# emacs
+install emacs
+
+# terminal emulator
+install rxvt-unicode-256color
+install tmux
+
+# global
+# install exuberant-ctags
+install exuberant-ctags
+install ncurses-dev
+# install global with exuberant-ctags support
+ls /usr/local/bin/gtags
+if [ $? -ne 0 ]; then
+    cd ~
+    wget ftp://ftp.gnu.org/pub/gnu/global/global-6.5.5.tar.gz
+    gunzip global-6.5.5.tar.gz
+    tar xf global-6.5.5.tar
+    cd global-6.5.5
+    ./configure --with-exuberant-ctags=/usr/bin/ctags
+    make
+    sudo make install
+
+    # clear left over
+    cd ..
+    if [ -d ~/global-6.5.5 ]; then
+        rm global-6.5.5.tar
+        rm -rf global-6.5.5
+    fi
+fi
+# clang-format
+install clang-format
+
+# google-chrome
+dpkg -s google-chrome-stable
+if [ $? -ne 0 ]; then
+    sudo rm /etc/apt/sources.list.d/google-chrome.list
+    sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+    sudo apt update
+    install google-chrome-stable
+fi
+# flash player
+install pepperflashplugin-nonfree  # then update player: //chrome:components
+
+# other usefull tools
+install sshpass
+install zsh
+install net-tools
+install wmctrl
+install htop
+
+$BASE_DIR/configure-linux
