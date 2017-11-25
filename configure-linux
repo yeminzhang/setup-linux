@@ -38,4 +38,7 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
     ssh-keygen -t rsa -C $git_email
 fi
 
+# zsh
+(cd ~; wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh)
+
 # add "${ID}    ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers manually
