@@ -37,3 +37,5 @@ ln -sf $BASE_DIR/global/.globalrc ~/.globalrc
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
     ssh-keygen -t rsa -C $git_email
 fi
+
+# add "${ID}    ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers manually
