@@ -5,21 +5,6 @@
 BASE_DIR=$(cd `dirname $0`;pwd)
 # X general
 ln -sf $BASE_DIR/X/.xprofile ~/.xprofile
-# install my own dwm
-cd ~
-if [ ! -d ~/dwm ]; then
-    git clone git://git.suckless.org/dwm
-fi
-cd dwm
-make
-cp -f $BASE_DIR/X/config.h ./
-make clean
-make
-sudo make install
-sudo update-alternatives --install /usr/bin/dwm dwm /usr/local/bin/dwm 1000
-
-#ln -sf $BASE_DIR/X/xmonad.hs ~/.xmonad/xmonad.hs
-#ln -sf $BASE_DIR/X/.xmobarrc ~/.xmobarrc
 
 # xmodmap now only uses hhkb config
 ln -sf $BASE_DIR/X/.xmodmaprc-for-hhkb ~/.xmodmaprc
@@ -43,13 +28,6 @@ if [ ! -d ~/.emacs.d ]; then
 	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
 	cd ~/.emacs.d/
 	git submodule update --init
-fi
-
-# terminal emulator
-ln -sf $BASE_DIR/X/.Xdefaults ~/.Xdefaults
-ln -sf $BASE_DIR/tmux/.tmux.conf ~/.tmux.conf
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # global

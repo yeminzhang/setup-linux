@@ -10,16 +10,13 @@ install () {
 install libx11-dev
 install libxft-dev
 install libxinerama-dev
-# install dwm
-install dwm
-install dmenu
+install dconf-editor
 
 # emacs
 install emacs
 
 # terminal emulator
-install rxvt-unicode-256color
-install tmux
+install terminator
 
 # global
 # install exuberant-ctags
@@ -57,7 +54,7 @@ if [ $? -ne 0 ]; then
     install google-chrome-stable
 fi
 # flash player
-install pepperflashplugin-nonfree  # then update player: //chrome:components
+install pepperflashplugin-nonfree  # then update player: chrome:components
 
 # other usefull tools
 install sshpass
