@@ -1,0 +1,95 @@
+#!/bin/bash
+
+# for high serria
+
+BASE_DIR=$(cd `dirname $0`;pwd)
+
+cli-install () {
+    brew install $1
+}
+
+gui-install () {
+    brew cask install $1
+}
+
+# homebrew
+if [ ! -f /usr/local/bin/brew ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# xcode
+xcode-select --install
+
+# emacs
+gui-install emacs
+
+# terminal emulator
+gui-install iterm2
+
+# clang-format
+cli-install clang-format
+
+# other usefull tools
+cli-install coreutils
+cli-install openssh
+# for find,updatedb,locate
+cli-install findutils
+cli-install htop
+cli-install git
+cli-install the_silver_searcher
+cli-install wget
+cli-install zsh
+gui-install fugu
+gui-install qqmusic
+gui-install qqlive
+gui-install baiduinput
+gui-install shadowsocksx-ng
+gui-install tunnelblick
+gui-install mplayerx
+gui-install thunderbird
+gui-install karabiner-elements
+gui-install virtualbox
+gui-install baiducloud
+#install official wechat at APP Store
+
+# configure applications
+
+# karabiner-elements
+ln -sf $BASE_DIR/macos/karabiner.json ~/.config/karabiner/karabiner.json
+
+# git
+git config --global user.name
+if [ $? -ne 0 ]; then
+    echo -n "Enter git user name: "
+    read git_name
+    git config --global user.name "$git_name"
+fi
+git config --global user.email
+if [ $? -ne 0 ]; then
+    echo -n "Enter git email address: "
+    read git_email
+    git config --global user.email "$git_email"
+fi
+
+# emacs
+defaults read org.gnu.Emacs AppleFontSmoothing -int 0
+if [ ! -d ~/.emacs.d ]; then
+	git clone git@github.com:yeminzhang/setup-emacs.git ~/.emacs.d
+	cd ~/.emacs.d/
+	git submodule update --init
+fi
+
+# ssh key
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
+    ssh-keygen -t rsa -C $git_email
+fi
+
+# zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+    (cd ~; wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh)
+fi
+ln -sf $BASE_DIR/.zshrc ~/.zshrc
+
+# ubuntu fonts
+mkdir -p ~/Library/Fonts/
+cp -f $BASE_DIR/macos/fonts/D*.ttf ~/Library/Fonts/
